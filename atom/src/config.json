@@ -1,4 +1,4 @@
 {
     "secret" : "DEUS EX MACHINA",
-    "connectionString" : "mongodb://localhost:27017/User"
+    "connectionString" : "mongodb://localhost:27017/user"
 }

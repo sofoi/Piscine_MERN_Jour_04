@@ -2,7 +2,7 @@ const config = require('config.json');
 const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require('mongoose');
-const connectionString =  "mongodb://localhost:27017/User" 
+const connectionString =  "mongodb://localhost:27017/user" 
 const connectionOptions = { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false };
 mongoose.connect( connectionString|| process.env.MONGODB_URI, connectionOptions);
 mongoose.Promise = global.Promise;

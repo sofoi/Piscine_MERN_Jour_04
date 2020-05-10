@@ -1,6 +1,6 @@
 ﻿const express = require('express');
 const router = express.Router();
-const userService = require('./user.service');
+const userService = require('/home/mrrobot/Desktop/Workplace/Piscine_MERN_Jour_04/atom/src/users/user.service.js');
 
 // routes
 router.post('/authenticate', authenticate);
@@ -53,4 +53,22 @@ function _delete(req, res, next) {
     userService.delete(req.params.id)
         .then(() => res.json({}))
         .catch(err => next(err));
+};
+
+function handleRoute() {
+    switch (true) {
+        case url.endsWith('/users/authenticate') && method === 'POST':
+            return authenticate();
+        case url.endsWith('/users/register') && method === 'POST':
+            return register();
+        case url.endsWith('/users') && method === 'GET':
+            return getUsers();
+        case url.match(/\/users\/\d+$/) && method === 'DELETE':
+            return deleteUser();
+        default:
+            // pass through any requests not handled above
+            return realFetch(url, opts)
+                .then(response => resolve(response))
+                .catch(error => reject(error));
+    }
 }
